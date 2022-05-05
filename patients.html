@@ -98,18 +98,76 @@
     <form id="addPatient">
         <legend><strong>Add Patient</strong></legend>
           <fieldset class="fields">
-            <label> Patient Id </label> <input type="text" name="patient_id">
+            <label> Patient Id </label> <input type="number" name="patient_id">
             <label> Patient First Name </label> <input type="text" name="patient_first_name">
             <label> Patient Last Name </label> <input type="text" name="patient_last_name">
             <label> Patient Street </label> <input type="text" name="patient_street">
             <label> Patient City </label> <input type="text" name="patient_city">
-            <label> Patient State </label> <input type="text" name="patient_state">
-            <label> Patient Zip </label> <input type="text" name="patient_zip">
-            <label> Patient Sex </label> <input type="text" name="patient_sex">
-            <label> DOB </label> <input type="text" name="dob">
-            <label> Hospital Id </label> <input type="text" name="hospitals_hospital_id">
+            <label> Patient State </label>
+                <select>
+                    <option value="AL">AL</option>
+                    <option value="AK">AK</option>
+                    <option value="AR">AR</option>	
+                    <option value="AZ">AZ</option>
+                    <option value="CA">CA</option>
+                    <option value="CO">CO</option>
+                    <option value="CT">CT</option>
+                    <option value="DC">DC</option>
+                    <option value="DE">DE</option>
+                    <option value="FL">FL</option>
+                    <option value="GA">GA</option>
+                    <option value="HI">HI</option>
+                    <option value="IA">IA</option>	
+                    <option value="ID">ID</option>
+                    <option value="IL">IL</option>
+                    <option value="IN">IN</option>
+                    <option value="KS">KS</option>
+                    <option value="KY">KY</option>
+                    <option value="LA">LA</option>
+                    <option value="MA">MA</option>
+                    <option value="MD">MD</option>
+                    <option value="ME">ME</option>
+                    <option value="MI">MI</option>
+                    <option value="MN">MN</option>
+                    <option value="MO">MO</option>	
+                    <option value="MS">MS</option>
+                    <option value="MT">MT</option>
+                    <option value="NC">NC</option>	
+                    <option value="NE">NE</option>
+                    <option value="NH">NH</option>
+                    <option value="NJ">NJ</option>
+                    <option value="NM">NM</option>			
+                    <option value="NV">NV</option>
+                    <option value="NY">NY</option>
+                    <option value="ND">ND</option>
+                    <option value="OH">OH</option>
+                    <option value="OK">OK</option>
+                    <option value="OR">OR</option>
+                    <option value="PA">PA</option>
+                    <option value="RI">RI</option>
+                    <option value="SC">SC</option>
+                    <option value="SD">SD</option>
+                    <option value="TN">TN</option>
+                    <option value="TX">TX</option>
+                    <option value="UT">UT</option>
+                    <option value="VT">VT</option>
+                    <option value="VA">VA</option>
+                    <option value="WA">WA</option>
+                    <option value="WI">WI</option>	
+                    <option value="WV">WV</option>
+                    <option value="WY">WY</option>
+                </select>
+            <input type="text" name="patient_state">
+            <label> Patient Zip </label> <input type="number" name="patient_zip">
+            <label> Patient Sex </label>
+                <select>
+                    <option value = "M"> M </option>
+                    <option value = "F"> F </option>
+                </select> 
+            <input type="text" name="patient_sex">
+            <label> DOB </label> <input type="date" name="dob">
+            <label> Hospital Id </label> <input type="number" name="hospitals_hospital_id">
             <label> Clinical Trials Id </label> <input type="text" name="clinical_trials_clinical_trial_id">
-
           </fieldset>
           <input class="btn" type="submit" id="addPatient" value="Add a Patient">
           <input class="btn" type="button" value="cancel">
@@ -121,16 +179,75 @@
   <form id="updatePatient">
       <legend><strong>Update Patient</strong></legend>
           <fieldset class="fields">
-            <label> Patient Id </label> <input type="text" name="patient_id">
+            <label> Patient Id </label> <input type="number" name="patient_id">
             <label> Patient First Name </label> <input type="text" name="patient_first_name">
             <label> Patient Last Name </label> <input type="text" name="patient_last_name">
             <label> Patient Street </label> <input type="text" name="patient_street">
             <label> Patient City </label> <input type="text" name="patient_city">
-            <label> Patient State </label> <input type="text" name="patient_state">
-            <label> Patient Zip </label> <input type="text" name="patient_zip">
-            <label> Patient Sex </label> <input type="text" name="patient_sex">
-            <label> DOB </label> <input type="text" name="dob">
-            <label> Hospital Id </label> <input type="text" name="hospitals_hospital_id">
+            <label> Patient State </label>
+                <select>
+                    <option value="AL">AL</option>
+                    <option value="AK">AK</option>
+                    <option value="AR">AR</option>	
+                    <option value="AZ">AZ</option>
+                    <option value="CA">CA</option>
+                    <option value="CO">CO</option>
+                    <option value="CT">CT</option>
+                    <option value="DC">DC</option>
+                    <option value="DE">DE</option>
+                    <option value="FL">FL</option>
+                    <option value="GA">GA</option>
+                    <option value="HI">HI</option>
+                    <option value="IA">IA</option>	
+                    <option value="ID">ID</option>
+                    <option value="IL">IL</option>
+                    <option value="IN">IN</option>
+                    <option value="KS">KS</option>
+                    <option value="KY">KY</option>
+                    <option value="LA">LA</option>
+                    <option value="MA">MA</option>
+                    <option value="MD">MD</option>
+                    <option value="ME">ME</option>
+                    <option value="MI">MI</option>
+                    <option value="MN">MN</option>
+                    <option value="MO">MO</option>	
+                    <option value="MS">MS</option>
+                    <option value="MT">MT</option>
+                    <option value="NC">NC</option>	
+                    <option value="NE">NE</option>
+                    <option value="NH">NH</option>
+                    <option value="NJ">NJ</option>
+                    <option value="NM">NM</option>			
+                    <option value="NV">NV</option>
+                    <option value="NY">NY</option>
+                    <option value="ND">ND</option>
+                    <option value="OH">OH</option>
+                    <option value="OK">OK</option>
+                    <option value="OR">OR</option>
+                    <option value="PA">PA</option>
+                    <option value="RI">RI</option>
+                    <option value="SC">SC</option>
+                    <option value="SD">SD</option>
+                    <option value="TN">TN</option>
+                    <option value="TX">TX</option>
+                    <option value="UT">UT</option>
+                    <option value="VT">VT</option>
+                    <option value="VA">VA</option>
+                    <option value="WA">WA</option>
+                    <option value="WI">WI</option>	
+                    <option value="WV">WV</option>
+                    <option value="WY">WY</option>
+                </select>
+            <input type="text" name="patient_state">
+            <label> Patient Zip </label> <input type="number" name="patient_zip">
+            <label> Patient Sex </label>
+                <select>
+                    <option value = "M"> M </option>
+                    <option value = "F"> F </option>
+                </select> 
+            <input type="text" name="patient_sex">
+            <label> DOB </label> <input type="date" name="dob">
+            <label> Hospital Id </label> <input type="number" name="hospitals_hospital_id">
             <label> Clinical Trials Id </label> <input type="text" name="clinical_trials_clinical_trial_id">
     </fieldset>
     <input class="btn" type="submit" id="UpdateSavePatient" value="Save Update Patient">
@@ -145,7 +262,7 @@
           <fieldset class="fields">
           <p>Please confirm you wish to delete by confirming the following</p>
           <label>Confirm:</label>
-            <label> Patient Id </label> <input type="text" name="patient_id">
+            <label> Patient Id </label> <input type="number" name="patient_id">
             
     </fieldset>
     <input class="btn" type="submit" id="DeletePatient" value="Delete Patient">
