@@ -1,0 +1,111 @@
+<html>
+<head>
+<title>Hospitals</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1>Clinical Trials</h1>
+
+<!-- Nav Bar -->
+[ <a href="clinial_trials.html">Clinical Trials</a> | 
+<a href="patients.html">Patients</a> | 
+<a href="hospitals.html">Hospitals</a> |  
+<a href="employees.html">Employees</a> |  ]
+
+<div id="browse" style="display: block">
+<p><strong>Browse Hospitals</strong></p>
+<table border="1" cellpadding="5">
+  <tr>
+    <th><a href="#">New</a></th>
+    <th></th>
+    <th>Hospital Id	</th>
+    <th>Hospital Name</th>
+    <th>Hospital Street</th>
+    <th>Hospital City</th>
+    <th>Hospital State</th>
+    <th>Hospital Zip</th>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="left" >1</td>
+    <td >Baylor University Medical Center</td>
+    <td>3500 Gaston Ave</td>
+    <td>Dallas</td>
+    <td>TX</td>
+    <td>75246</td>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="left" >1</td>
+    <td >Case Western Reserve University</td>
+    <td>9501 Euclid Ave</td>
+    <td>Cleveland</td>
+    <td>OH</td>
+    <td>44106</td>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="left" >1</td>
+    <td >Geisinger Medical Center</td>
+    <td>100 N Academy Ave</td>
+    <td>Danville</td>
+    <td>PA</td>
+    <td>17821/td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</div> <!-- browse -->
+<div id="insert" style="display: block">
+    <form id="addHospital">
+        <legend><strong>Add Hospital</strong></legend>
+          <fieldset class="fields">
+            <label> Hospital Id </label> <input type="text" name="hospital_id">
+            <label> Hospital Name </label> <input type="text" name="hospital_name">
+            <label> Hospital Street </label> <input type="text" name="hospital_street">
+            <label> Hospital City </label> <input type="text" name="hospital_city">
+            <label> Hospital State </label> <input type="text" name="hospital_state">
+            <label> Hospital Zip </label> <input type="text" name="hospital_zip">
+          </fieldset>
+          <input class="btn" type="submit" id="addHospital" value="Add a Hospital">
+          <input class="btn" type="button" value="cancel">
+	</form> <!--add new hospital-->
+</div><!-- insert -->
+
+<p>&nbsp;</p>
+<div id="update" style="display: block">
+  <form id="updateHospital">
+      <legend><strong>Update Hospital</strong></legend>
+          <fieldset class="fields">
+          <label>ID:</label> 1
+            <label> Hospital Id </label> <input type="text" name="hospital_id">
+            <label> Hospital Name </label> <input type="text" name="hospital_name">
+            <label> Hospital Street </label> <input type="text" name="hospital_street">
+            <label> Hospital City </label> <input type="text" name="hospital_city">
+            <label> Hospital State </label> <input type="text" name="hospital_state">
+            <label> Hospital Zip </label> <input type="text" name="hospital_zip">
+    </fieldset>
+    <input class="btn" type="submit" id="UpdateSaveHospital" value="Save Update Hospital">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div>
+<!-- update -->
+<p>&nbsp;</p>
+<div id="delete" style="display: block">
+  <form id="deleteHospital">
+      <legend><strong>Delete Hospital</strong></legend>
+          <fieldset class="fields">
+          <p>Please confirm you wish to delete by confirming the following</p>
+          <label>ID:</label> 1
+            <label> Hospital Name </label> <input type="text" name="hospital_name">
+            
+    </fieldset>
+    <input class="btn" type="submit" id="DeleteHospital" value="Delete Hospital">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div><!-- delete -->
+</body>
+</html>

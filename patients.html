@@ -1,0 +1,157 @@
+<html>
+<head>
+<title>Patients</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1>Clinical Trials</h1>
+
+<!-- Nav Bar -->
+[ <a href="clinial_trials.html">Clinical Trials</a> | 
+<a href="patients.html">Patients</a> | 
+<a href="hospitals.html">Hospitals</a> |  
+<a href="employees.html">Employees</a> |  ]
+
+<div id="browse" style="display: block">
+<p><strong>Browse Patients</strong></p>
+<table border="1" cellpadding="5">
+  <tr>
+    <th><a href="#">New</a></th>
+    <th></th>
+    <th>Patient Id	</th>
+    <th>Patient First Name</th>
+    <th>Patient Last Name</th>
+    <th>Patient Street</th>
+    <th>Patient City</th>
+    <th>Patient State</th>
+    <th>Patient Zip</th>
+    <th>Patient Sex</th>
+    <th>DOB</th>
+    <th>Hospital Id</th>
+    <th>Clinical Trials Id</th>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="left" >10001</td>
+    <td >Gaviin</td>
+    <td>Jep</td>
+    <td>9020 Garland Rd</td>
+    <td>Dallas</td>
+    <td>TX</td>
+    <td>75218</td>
+    <td>M</td>
+    <td>11/1/2000</td>
+    <td>1</td>
+    <td>HG1141</td>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="left" >13001</td>
+    <td >Herbie</td>
+    <td>Williams</td>
+    <td>2136 Murray Hill Rd</td>
+    <td>Cleveland</td>
+    <td>OH</td>
+    <td>44106</td>
+    <td>M</td>
+    <td>9/21/1995</td>
+    <td>2</td>
+    <td>HG8143</td>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="left" >38001</td>
+    <td >Terry</td>
+    <td>Noel</td>
+    <td>502 Church St</td>
+    <td>Danville</td>
+    <td>PA</td>
+    <td>17821</td>
+    <td>F</td>
+    <td>2/28/2000</td>
+    <td>3</td>
+    <td>HGG173</td>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="left" >38001</td>
+    <td >Paden</td>
+    <td>Heidi</td>
+    <td>331 W Mahoning St</td>
+    <td>Danville</td>
+    <td>PA</td>
+    <td>17821</td>
+    <td>F</td>
+    <td>8/27/1984</td>
+    <td>3</td>
+    <td>HG1141</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</div> <!-- browse -->
+<div id="insert" style="display: block">
+    <form id="addPatient">
+        <legend><strong>Add Patient</strong></legend>
+          <fieldset class="fields">
+            <label> Patient Id </label> <input type="text" name="patient_id">
+            <label> Patient First Name </label> <input type="text" name="patient_first_name">
+            <label> Patient Last Name </label> <input type="text" name="patient_last_name">
+            <label> Patient Street </label> <input type="text" name="patient_street">
+            <label> Patient City </label> <input type="text" name="patient_city">
+            <label> Patient State </label> <input type="text" name="patient_state">
+            <label> Patient Zip </label> <input type="text" name="patient_zip">
+            <label> Patient Sex </label> <input type="text" name="patient_sex">
+            <label> DOB </label> <input type="text" name="dob">
+            <label> Hospital Id </label> <input type="text" name="hospitals_hospital_id">
+            <label> Clinical Trials Id </label> <input type="text" name="clinical_trials_clinical_trial_id">
+
+          </fieldset>
+          <input class="btn" type="submit" id="addPatient" value="Add a Patient">
+          <input class="btn" type="button" value="cancel">
+	</form> <!--add new patient-->
+</div><!-- insert -->
+
+<p>&nbsp;</p>
+<div id="update" style="display: block">
+  <form id="updatePatient">
+      <legend><strong>Update Patient</strong></legend>
+          <fieldset class="fields">
+          <label>ID:</label> 1
+            <label> Patient Id </label> <input type="text" name="patient_id">
+            <label> Patient First Name </label> <input type="text" name="patient_first_name">
+            <label> Patient Last Name </label> <input type="text" name="patient_last_name">
+            <label> Patient Street </label> <input type="text" name="patient_street">
+            <label> Patient City </label> <input type="text" name="patient_city">
+            <label> Patient State </label> <input type="text" name="patient_state">
+            <label> Patient Zip </label> <input type="text" name="patient_zip">
+            <label> Patient Sex </label> <input type="text" name="patient_sex">
+            <label> DOB </label> <input type="text" name="dob">
+            <label> Hospital Id </label> <input type="text" name="hospitals_hospital_id">
+            <label> Clinical Trials Id </label> <input type="text" name="clinical_trials_clinical_trial_id">
+    </fieldset>
+    <input class="btn" type="submit" id="UpdateSavePatient" value="Save Update Patient">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div>
+<!-- update -->
+<p>&nbsp;</p>
+<div id="delete" style="display: block">
+  <form id="deletePatient">
+      <legend><strong>Delete Patient</strong></legend>
+          <fieldset class="fields">
+          <p>Please confirm you wish to delete by confirming the following</p>
+          <label>ID:</label> 1
+            <label> Patient Id </label> <input type="text" name="patient_id">
+            
+    </fieldset>
+    <input class="btn" type="submit" id="DeletePatient" value="Delete Patient">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div><!-- delete -->
+</body>
+</html>
