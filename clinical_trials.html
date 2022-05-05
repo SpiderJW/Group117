@@ -1,0 +1,100 @@
+<html>
+<head>
+<title>Clinical Trials</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1>Clinical Trials</h1>
+
+<!-- Nav Bar -->
+[ <a href="clinial_trials.html">Clinical Trials</a> | 
+<a href="patients.html">Patients</a> | 
+<a href="hospitals.html">Hospitals</a> |  
+<a href="employees.html">Employees</a> |  ]
+
+<div id="browse" style="display: block">
+<p><strong>Browse Planets</strong></p>
+<table border="1" cellpadding="5">
+  <tr>
+    <th><a href="#">New</a></th>
+    <th></th>
+    <th>Clinical Trial Id	</th>
+    <th>Cancer Type</th>
+    <th>Trial Description</th>
+    <th>Maximum Patients</th>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >HG1141</td>
+    <td >Breast</td>
+    <td align="right" >This randomized phase II trial studies how well abbreviated breast magnetic resonance imaging (MRI) and digital tomosynthesis mammography work in detecting cancer in women with dense breasts.</td>
+    <td>1500</td>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >HG8143</td>
+    <td >Kidney</td>
+    <td align="right" >This phase III trial compares nephrectomy (surgery to remove a kidney or part of a kidney) with nivolumab to the usual approach of nephrectomy followed by standard post-operative follow-up and monitoring.</td>
+    <td>750</td>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >HGG173</td>
+    <td >Myeloma</td>
+    <td align="right" >This phase III trial studies how well lenalidomide and dexamethasone works with or without daratumumab in treating patients with high-risk smoldering myeloma. </td>
+    <td>300</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</div> <!-- browse -->
+<div id="insert" style="display: block">
+    <form id="addClinical_Trial">
+        <legend><strong>Add Clinical Trial</strong></legend>
+          <fieldset class="fields">
+            <label> Clinical Trial Id </label> <input type="text" name="clinical_trial_id">
+            <label> Cancer Type </label> <input type="text" name="cancer_type">
+            <label> Trial Description </label> <input type="text" name="trial_description">
+            <label> Maximum Patients </label> <input type="text" name="maximum_patients">
+          </fieldset>
+          <input class="btn" type="submit" id="addClinicalTrial" value="Add a Clinical Trial">
+          <input class="btn" type="button" value="cancel">
+	</form> <!--add new planet-->
+</div><!-- insert -->
+
+<p>&nbsp;</p>
+<div id="update" style="display: block">
+  <form id="updatePlanet">
+      <legend><strong>Update Planet</strong></legend>
+          <fieldset class="fields">
+          <label>ID:</label> 1
+            <label> Clinical Trial Id </label> <input type="text" name="clinical_trial_id">
+            <label> Cancer Type </label> <input type="text" name="cancer_type">
+            <label> Trial Description </label> <input type="text" name="trial_description">
+            <label> Maximum Patients </label> <input type="text" name="maximum_patients">
+    </fieldset>
+    <input class="btn" type="submit" id="UpdateSaveClinicalTrial" value="Save Update Clinical Trial">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div>
+<!-- update 
+<p>&nbsp;</p>
+<div id="delete" style="display: block">
+  <form id="deleteClinicalTrial">
+      <legend><strong>Delete Clinical Trial</strong></legend>
+          <fieldset class="fields">
+          <p>Are you sure you wish to delete the following?</p>
+          <label>ID:</label> 1
+            <label> Name </label> Gemenon
+            -->
+            
+    </fieldset>
+    <input class="btn" type="submit" id="DeleteClinicalTrial" value="Delete Clinical Trial">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div><!-- delete -->
+</body>
+</html>
