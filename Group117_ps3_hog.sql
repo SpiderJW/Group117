@@ -22,7 +22,7 @@ WHERE clinical_trial_id = :clinical_trial_idInput_from_update_form
 DELETE FROM clinical_trials WHERE clinical_trial_id = :clinical_trial_id_selected_from_browse_clinical_trials_page
 
 -- -----------------------------------------------------
---Hospital Table
+-- Hospital Table
 -- -----------------------------------------------------
 
 -- Populate the hospitals table on the hospitals page
@@ -81,7 +81,7 @@ WHERE patient_id= :patient_id_from_the_update_form
 DELETE FROM patients WHERE patient_id = :patient_id_selected_from_browse_patients_page
 
 -- -----------------------------------------------------
---Employee Table
+-- Employee Table
 -- -----------------------------------------------------
 
 -- Populate the employees table on the employees page
@@ -120,7 +120,7 @@ AND clinical_trial_id= :clinical_trial_idInput
 DELETE FROM employees_supporting_clinical_trials WHERE employees_employee_id = :employees_employee_id AND clinical_trials_clinical_trial_id = :clinical_trials_clinical_trial_id
 
 -- -----------------------------------------------------
---Employer Table
+-- Employer Table
 -- -----------------------------------------------------
 
 -- Populate the employers table on the employees page
