@@ -1,0 +1,94 @@
+<html>
+<head>
+<title>Employers</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1>Employers</h1>
+
+<!-- Nav Bar -->
+[ <a href="clinical_trials.html">Clinical Trials</a> | 
+<a href="patients.html">Patients</a> | 
+<a href="hospitals.html">Hospitals</a> |  
+<a href="employees.html">Employees</a> |  
+<a href="employers.html">Employers</a> | ]
+
+<div id="browse" style="display: block">
+<p><strong>Browse Employers</strong></p>
+<table border="1" cellpadding="5">
+  <tr>
+    <th><a href="#">New</a></th>
+    <th></th>
+    <th>Employer Id	</th>
+    <th>Employer Name</th>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="left" >0</td>
+    <td>Health Oncology Group</td>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="left" >1</td>
+    <td>Case Western Reserve University</td>
+  </tr>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="left" >2</td>
+    <td>Baylor University Medical Center</td>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="left" >3</td>
+    <td>Geisinger Medical Center</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</div> <!-- browse -->
+<div id="insert" style="display: block">
+    <form id="addEmployer">
+        <legend><strong>Add Employer</strong></legend>
+          <fieldset class="fields">
+            <label> Employer Id </label> <input type="number" name="employer_id">
+            <label> Employer Name </label> <input type="text" name="employer_name">
+          </fieldset>
+          <input class="btn" type="submit" id="addEmployer" value="Add a Employer">
+          <input class="btn" type="button" value="cancel">
+	</form> <!--add new employer-->
+</div><!-- insert -->
+
+<p>&nbsp;</p>
+<div id="update" style="display: block">
+  <form id="updateEmployer">
+      <legend><strong>Update Employer</strong></legend>
+          <fieldset class="fields">
+            <label> Employer Id </label> <input type="number" name="employer_id">
+            <label> Employer Name </label> <input type="text" name="employer_name">
+    </fieldset>
+    <input class="btn" type="submit" id="UpdateSaveEmployer" value="Save Update Employer">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div>
+<!-- update -->
+<p>&nbsp;</p>
+<div id="delete" style="display: block">
+  <form id="deleteEmployer">
+      <legend><strong>Delete Employer</strong></legend>
+          <fieldset class="fields">
+          <p>Please confirm you wish to delete by confirming the following</p>
+          <label>Confirm:</label>
+            <label> Employer Id </label> <input type="number" name="employer_id">
+            
+    </fieldset>
+    <input class="btn" type="submit" id="DeleteEmployer" value="Delete Employer">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div><!-- delete -->
+</body>
+</html>
