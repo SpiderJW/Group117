@@ -81,8 +81,8 @@ DELETE FROM patients WHERE patient_id = :patient_id_selected_from_browse_patient
 -- Populate the employees table on the employees page
 SELECT * FROM employees
 -- Insert into employees
-INSERT INTO employees (employee_id, employee_first_name, employee_last_name, position, email, desk_phone, employer) VALUES
-(:employee_id, :employee_first_name, :employee_last_name, :position, :email, :desk_phone, :employer)
+INSERT INTO employees (employee_id, employee_first_name, employee_last_name, position, email, desk_phone) VALUES
+(:employee_id, :employee_first_name, :employee_last_name, :position, :email, :desk_phone)
 -- update an employees's data based on submission of the Update employee form 
 UPDATE employees
 SET employee_first_name = :employee_first_nameInput, 
@@ -113,53 +113,16 @@ AND clinical_trial_id= :clinical_trial_idInput
 DELETE FROM employees_supporting_clinical_trials WHERE employees_employee_id = :employees_employee_id AND clinical_trials_clinical_trial_id = :clinical_trials_clinical_trial_id
 
 
+--Employer Table
 
-
-
-
-
-
-
--- get all characters and their homeworld name for the List People page
-SELECT bsg_people.character_id, fname, lname, bsg_planets.name AS homeworld, age FROM bsg_people INNER JOIN bsg_planets ON homeworld = bsg_planets.planet_id
-
--- get a single character's data for the Update People form
-SELECT character_id, fname, lname, homeworld, age FROM bsg_people WHERE character_id = :character_ID_selected_from_browse_character_page
-
--- get all character's data to populate a dropdown for associating with a certificate  
-SELECT character_id AS pid, fname, lname FROm bsg_people 
--- get all certificates to populate a dropdown for associating with people
-SELECT certification_id AS cid, title FROM bsg_cert
-
--- get all peoople with their current associated certificates to list
-SELECT pid, cid, CONCAT(fname,' ',lname) AS name, title AS certificate 
-FROM bsg_people 
-INNER JOIN bsg_cert_people ON bsg_people.character_id = bsg_cert_people.pid 
-INNER JOIN bsg_cert on bsg_cert.certification_id = bsg_cert_people.cid 
-ORDER BY name, certificate
-
--- add a new character
-INSERT INTO bsg_people (fname, lname, homeworld, age) VALUES (:fnameInput, :lnameInput, :homeworld_id_from_dropdown_Input, :ageInput)
-
--- associate a character with a certificate (M-to-M relationship addition)
-INSERT INTO bsg_cert_people (pid, cid) VALUES (:character_id_from_dropdown_Input, :certification_id_from_dropdown_Input)
-
--- dis-associate a certificate from a person (M-to-M relationship deletion)
-DELETE FROM bsg_cert_people WHERE pid = :character_ID_selected_from_certificate_and_character_list AND cid = :certification_ID_selected_from-certificate_and_character_list
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-- Populate the employers table on the employees page
+SELECT * FROM employers
+-- Insert into employees
+INSERT INTO employers (employer_id, employer_name) VALUES
+(:employer_id, :employer_name)
+-- update an employers's data based on submission of the Update employer form 
+UPDATE employees
+SET employer_name = :employer_name, 
+WHERE employer_id= :employer_id_from_the_update_form
+-- delete an employee
+DELETE FROM employers WHERE employer_id = :employer_id_selected_from_browse_employees_page
