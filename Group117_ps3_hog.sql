@@ -3,7 +3,9 @@
 -- Group 117
 -- Team: Thomas Gathman, John Wong
 
+-- -----------------------------------------------------
 -- Clinical Trials Tables
+-- -----------------------------------------------------
 
 -- Populate the clinical_trials table on the clinical_trials page
 SELECT * FROM clinical_trials
@@ -19,8 +21,9 @@ WHERE clinical_trial_id = :clinical_trial_idInput_from_update_form
 -- delete a clinical trial
 DELETE FROM clinical_trials WHERE clinical_trial_id = :clinical_trial_id_selected_from_browse_clinical_trials_page
 
-
+-- -----------------------------------------------------
 --Hospital Table
+-- -----------------------------------------------------
 
 -- Populate the hospitals table on the hospitals page
 SELECT * FROM hospitals
@@ -38,8 +41,9 @@ WHERE hospital_id= :hospital_id_from_the_update_form
 -- delete a hospital
 DELETE FROM hospitals WHERE hospital_id = :hospital_id_selected_from_browse_hospitals_page
 
-
+-- -----------------------------------------------------
 -- Hospital/Clinical Trials Intersection Table
+-- -----------------------------------------------------
 
 -- Populate the hospitals_supporting_clinical_trials table on the hospital page
 SELECT * FROM hospitals_supporting_clinical_trials
@@ -49,8 +53,9 @@ INSERT INTO hospitals_supporting_clinical_trials (clinical_trials_clinical_trial
 -- Disassociate a hospital from a clinical trial
 DELETE FROM hospitals_supporting_clinical_trials WHERE clinical_trials_clinical_trial_id = :clinical_trials_clinical_trial_id AND hospitals_hospital_id = :hospitals_hospital_id
 
-
+-- -----------------------------------------------------
 -- Patients Table
+-- -----------------------------------------------------
 
 -- Populate the patients table on the patients page
 SELECT * FROM patients
@@ -75,8 +80,9 @@ WHERE patient_id= :patient_id_from_the_update_form
 -- delete a patient
 DELETE FROM patients WHERE patient_id = :patient_id_selected_from_browse_patients_page
 
-
+-- -----------------------------------------------------
 --Employee Table
+-- -----------------------------------------------------
 
 -- Populate the employees table on the employees page
 SELECT * FROM employees
@@ -96,8 +102,9 @@ WHERE employee_id= :employee_id_from_the_update_form
 -- delete an employee
 DELETE FROM employees WHERE employee_id = :employee_id_selected_from_browse_employees_page
 
-
+-- -----------------------------------------------------
 -- Employee/Clinical Trials Intersection Table
+-- -----------------------------------------------------
 
 -- Populate the employees_supporting_clinical_trials table on the employees page
 SELECT * FROM employees_supporting_clinical_trials
@@ -112,8 +119,9 @@ AND clinical_trial_id= :clinical_trial_idInput
 -- Disassociate an employee from a clinical trial
 DELETE FROM employees_supporting_clinical_trials WHERE employees_employee_id = :employees_employee_id AND clinical_trials_clinical_trial_id = :clinical_trials_clinical_trial_id
 
-
+-- -----------------------------------------------------
 --Employer Table
+-- -----------------------------------------------------
 
 -- Populate the employers table on the employees page
 SELECT * FROM employers
