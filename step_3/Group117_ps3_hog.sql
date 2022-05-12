@@ -12,17 +12,21 @@ SELECT clinical_trial_id AS "Clinical Trial Id",
 cancer_type AS "Cancer Type", 
 trial_description AS "Trial Description", 
 maximum_patients AS "Maximum Patients" FROM clinical_trials
+
 -- Insert into clinical_trials
 INSERT INTO clinical_trials (clinical_trial_id, cancer_type, trial_description, maximum_patients) VALUES
 (:clinical_trial_id, :cancer_type, :trial_description, :maximum_patients)
+
 -- update a clinical trial's data based on submission of the Update Clinical Trial form 
 UPDATE clinical_trials 
 SET cancer_type= :cancer_typeInput, 
 trial_description = :trial_description_Input, 
 maximum_patients = :maximum_patientsInput 
 WHERE clinical_trial_id = :clinical_trial_idInput_from_update_form
+
 -- delete a clinical trial
 DELETE FROM clinical_trials WHERE clinical_trial_id = :clinical_trial_id_selected_from_browse_clinical_trials_page
+
 
 -- -----------------------------------------------------
 -- Hospital Table
@@ -35,9 +39,11 @@ hospital_street AS "Hospital Street",
 hospital_city AS "Hospital City", 
 hospital_state AS "Hospital State", 
 hospital_zip AS "Hospital Zip" FROM hospitals
+
 -- Insert into hospitals
 INSERT INTO hospitals (hospital_id, hospital_name, hospital_street, hospital_city, hospital_state, hospital_zip) VALUES
 (:hospital_id, :hospital_name, :hospital_street, :hospital_city, :hospital_state, :hospital_zip)
+
 -- update a hospital's data based on submission of the Update Hospital form 
 UPDATE hospitals
 SET hospital_name = :hospital_nameInput, 
@@ -46,8 +52,10 @@ hospital_city = :hospital_cityInput,
 hospital_state= :hospital_state_from_dropdown_Input,
 hospital_zip= :hospital_zipInput
 WHERE hospital_id= :hospital_id_from_the_update_form
+
 -- delete a hospital
 DELETE FROM hospitals WHERE hospital_id = :hospital_id_selected_from_browse_hospitals_page
+
 
 -- -----------------------------------------------------
 -- Hospital/Clinical Trials Intersection Table
@@ -56,11 +64,14 @@ DELETE FROM hospitals WHERE hospital_id = :hospital_id_selected_from_browse_hosp
 -- Populate the hospitals_supporting_clinical_trials table on the hospital page
 SELECT hospitals_hospital_id AS "Hospital Id", 
 clinical_trials_clinical_trial_id AS "Clinical Trial Id" FROM hospitals_supporting_clinical_trials
+
 --Insert into hospitals_supporting_clinical_trials
 INSERT INTO hospitals_supporting_clinical_trials (hospitals_hospital_id, clinical_trials_clinical_trial_id) VALUES
 (:hospitals_hospital_id, :clinical_trials_clinical_trial_id)
+
 -- Disassociate a hospital from a clinical trial
 DELETE FROM hospitals_supporting_clinical_trials WHERE clinical_trials_clinical_trial_id = :clinical_trials_clinical_trial_id AND hospitals_hospital_id = :hospitals_hospital_id
+
 
 -- -----------------------------------------------------
 -- Patients Table
@@ -78,11 +89,13 @@ patient_sex AS "Patient Sex",
 dob AS "DOB", 
 hospitals_hospital_id AS "Hospital Id",
 clinical_trials_clinical_trial_id AS "Clinical Trials Id" FROM patients
+
 -- Insert into patients table
 INSERT INTO patients (patient_id, patient_first_name, patient_last_name, patient_street, patient_city, patient_state, 
 patient_zip, patient_sex, dob, hospitals_hospital_id, clinical_trials_clinical_trial_id) VALUES
 (:patient_id, :patient_first_name, :patient_last_name, :patient_street, :patient_city, :patient_state, 
 :patient_zip, :patient_sex, :dob, :hospitals_hospital_id, :clinical_trials_clinical_trial_id)
+
 -- update a patient's data based on submission of the Update Patient form 
 UPDATE patients
 SET patient_first_name = :patient_first_nameInput, 
@@ -96,8 +109,10 @@ dob= :dobInput,
 hospital_id= :hospital_idInput,
 clinical_trial_id = :clinical_trial_idInput
 WHERE patient_id= :patient_id_from_the_update_form
+
 -- delete a patient
 DELETE FROM patients WHERE patient_id = :patient_id_selected_from_browse_patients_page
+
 
 -- -----------------------------------------------------
 -- Employee Table
@@ -111,9 +126,11 @@ position AS "Position",
 email AS "Email", 
 desk_phone AS "Desk Phone",
 employers_employer_id AS "Employer Id" FROM employees
+
 -- Insert into employees
 INSERT INTO employees (employee_id, employee_first_name, employee_last_name, position, email, desk_phone, employers_employer_id) VALUES
 (:employee_id, :employee_first_name, :employee_last_name, :position, :email, :desk_phone, :employers_employer_id)
+
 -- update an employees's data based on submission of the Update employee form 
 UPDATE employees
 SET employee_first_name = :employee_first_nameInput, 
@@ -127,6 +144,7 @@ WHERE employee_id= :employee_id_from_the_update_form
 -- delete an employee
 DELETE FROM employees WHERE employee_id = :employee_id_selected_from_browse_employees_page
 
+
 -- -----------------------------------------------------
 -- Employee/Clinical Trials Intersection Table
 -- -----------------------------------------------------
@@ -135,16 +153,20 @@ DELETE FROM employees WHERE employee_id = :employee_id_selected_from_browse_empl
 SELECT employees_employee_id AS "Employee Id", 
 clinical_trials_clinical_trial_id AS "Clinical Trial Id", 
 employee_trial_role AS "Employee Trial Role" FROM employees_supporting_clinical_trials
+
 -- Insert into employees_supporting_clinical_trials and associate employee with clinical trial (M:M)
 INSERT INTO employees_supporting_clinical_trials (employees_employee_id, clinical_trials_clinical_trial_id, employee_trial_role) VALUES
 (:employees_employee_id, :clinical_trials_clinical_trial_id, :employee_trial_role)
+
 -- update an employee's trial role based on submission of the Update employee role form
 UPDATE employees_supporting_clinical_trials
 SET employee_trial_role= :employee_trial_roleInput
 WHERE employees_employee_id= :employees_employee_idInput,
 AND clinical_trial_id= :clinical_trial_idInput
+
 -- Disassociate an employee from a clinical trial
 DELETE FROM employees_supporting_clinical_trials WHERE employees_employee_id = :employees_employee_id AND clinical_trials_clinical_trial_id = :clinical_trials_clinical_trial_id
+
 
 -- -----------------------------------------------------
 -- Employer Table
@@ -153,12 +175,15 @@ DELETE FROM employees_supporting_clinical_trials WHERE employees_employee_id = :
 -- Populate the employers table on the employees page
 SELECT employer_id AS "Employer Id", 
 employer_name AS "Employer Name" FROM employers
+
 -- Insert into employees
 INSERT INTO employers (employer_id, employer_name) VALUES
 (:employer_id, :employer_name)
+
 -- update an employers's data based on submission of the Update employer form 
 UPDATE employees
 SET employer_name = :employer_name, 
 WHERE employer_id= :employer_id_from_the_update_form
+
 -- delete an employee
 DELETE FROM employers WHERE employer_id = :employer_id_selected_from_browse_employees_page
