@@ -9,19 +9,19 @@
     * this function sets one visible the others not
     */
     if (dowhat == 'insert'){  
-      document.getElementById('browse').style.display = 'none';
+      document.getElementById('browse').style.display = 'block';
       document.getElementById('insert').style.display = 'block';
       document.getElementById('update').style.display = 'none';
       document.getElementById('delete').style.display = 'none';
     }
     else if (dowhat == 'update'){
-      document.getElementById('browse').style.display = 'none';
+      document.getElementById('browse').style.display = 'block';
       document.getElementById('insert').style.display = 'none';
       document.getElementById('update').style.display = 'block';
       document.getElementById('delete').style.display = 'none';
     }
     else if (dowhat == 'delete'){
-      document.getElementById('browse').style.display = 'none';
+      document.getElementById('browse').style.display = 'block';
       document.getElementById('insert').style.display = 'none';
       document.getElementById('update').style.display = 'none';
       document.getElementById('delete').style.display = 'block';
@@ -63,7 +63,7 @@
 <p><strong>Browse Employees</strong></p>
 <table border="1" cellpadding="5">
   <tr>
-    <th><a href="#">New</a></th>
+    <th><a href="#" onClick="newEntity()">New</a></th>
     <th></th>
     <th>Employee Id	</th>
     <th>Employee First Name</th>
@@ -74,8 +74,8 @@
     <th>Employer Id</th>
   </tr>
   <tr>
-    <td><a href="#">Edit</a></td>
-    <td><a href="#">Delete</a></td>
+    <td><a href="#" onClick="updateEntity()">Edit</a></td>
+    <td><a href="#" onClick="deleteEntity()">Delete</a></td>
     <td align="left" >1</td>
     <td align="left" >Regina</td>
     <td>Dutch</td>
@@ -85,8 +85,8 @@
     <td>0</td>
   </tr>
   <tr>
-    <td><a href="#">Edit</a></td>
-    <td><a href="#">Delete</a></td>
+    <td><a href="#" onClick="updateEntity()">Edit</a></td>
+    <td><a href="#" onClick="deleteEntity()">Delete</a></td>
     <td align="left" >2</td>
     <td align="left" >Calvin</td>
     <td>Jonas</td>
@@ -96,8 +96,8 @@
     <td>0</td>
   </tr>
   <tr>
-    <td><a href="#">Edit</a></td>
-    <td><a href="#">Delete</a></td>
+    <td><a href="#" onClick="updateEntity()">Edit</a></td>
+    <td><a href="#" onClick="deleteEntity()">Delete</a></td>
     <td align="left" >3</td>
     <td align="left" >Haylie</td>
     <td>Sandra</td>
@@ -107,8 +107,8 @@
     <td>0</td>
   </tr>
   <tr>
-    <td><a href="#">Edit</a></td>
-    <td><a href="#">Delete</a></td>
+    <td><a href="#" onClick="updateEntity()">Edit</a></td>
+    <td><a href="#" onClick="deleteEntity()">Delete</a></td>
     <td align="left" >4</td>
     <td align="left" >Steve</td>
     <td>Glenna</td>
@@ -118,8 +118,8 @@
     <td>1</td>
   </tr>
   <tr>
-    <td><a href="#">Edit</a></td>
-    <td><a href="#">Delete</a></td>
+    <td><a href="#" onClick="updateEntity()">Edit</a></td>
+    <td><a href="#" onClick="deleteEntity()">Delete</a></td>
     <td align="left" >5</td>
     <td align="left" >Deitra</td>
     <td>Gracie</td>
@@ -129,8 +129,8 @@
     <td>2</td>
   </tr>
   <tr>
-    <td><a href="#">Edit</a></td>
-    <td><a href="#">Delete</a></td>
+    <td><a href="#" onClick="updateEntity()">Edit</a></td>
+    <td><a href="#" onClick="deleteEntity()">Delete</a></td>
     <td align="left" >6</td>
     <td align="left" >Alex</td>
     <td>King</td>

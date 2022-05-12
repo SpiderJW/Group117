@@ -9,19 +9,19 @@
     * this function sets one visible the others not
     */
     if (dowhat == 'insert'){  
-      document.getElementById('browse').style.display = 'none';
+      document.getElementById('browse').style.display = 'block';
       document.getElementById('insert').style.display = 'block';
       document.getElementById('update').style.display = 'none';
       document.getElementById('delete').style.display = 'none';
     }
     else if (dowhat == 'update'){
-      document.getElementById('browse').style.display = 'none';
+      document.getElementById('browse').style.display = 'block';
       document.getElementById('insert').style.display = 'none';
       document.getElementById('update').style.display = 'block';
       document.getElementById('delete').style.display = 'none';
     }
     else if (dowhat == 'delete'){
-      document.getElementById('browse').style.display = 'none';
+      document.getElementById('browse').style.display = 'block';
       document.getElementById('insert').style.display = 'none';
       document.getElementById('update').style.display = 'none';
       document.getElementById('delete').style.display = 'block';
@@ -63,7 +63,7 @@
 <p><strong>Browse Patients</strong></p>
 <table border="1" cellpadding="5">
   <tr>
-    <th><a href="#">New</a></th>
+    <th><a href="#" onClick="newEntity()">New</a></th>
     <th></th>
     <th>Patient Id	</th>
     <th>Patient First Name</th>
@@ -78,8 +78,8 @@
     <th>Clinical Trials Id</th>
   </tr>
   <tr>
-    <td><a href="#">Edit</a></td>
-    <td><a href="#">Delete</a></td>
+    <td><a href="#" onClick="updateEntity()">Edit</a></td>
+    <td><a href="#" onClick="deleteEntity()">Delete</a></td>
     <td align="left" >10001</td>
     <td >Gaviin</td>
     <td>Jep</td>
@@ -93,8 +93,8 @@
     <td>HG1141</td>
   </tr>
   <tr>
-    <td><a href="#">Edit</a></td>
-    <td><a href="#">Delete</a></td>
+    <td><a href="#" onClick="updateEntity()">Edit</a></td>
+    <td><a href="#" onClick="deleteEntity()">Delete</a></td>
     <td align="left" >13001</td>
     <td >Herbie</td>
     <td>Williams</td>
@@ -108,8 +108,8 @@
     <td>HG8143</td>
   </tr>
   <tr>
-    <td><a href="#">Edit</a></td>
-    <td><a href="#">Delete</a></td>
+    <td><a href="#" onClick="updateEntity()">Edit</a></td>
+    <td><a href="#" onClick="deleteEntity()">Delete</a></td>
     <td align="left" >38001</td>
     <td >Terry</td>
     <td>Noel</td>
@@ -123,8 +123,8 @@
     <td>HGG173</td>
   </tr>
   <tr>
-    <td><a href="#">Edit</a></td>
-    <td><a href="#">Delete</a></td>
+    <td><a href="#" onClick="updateEntity()">Edit</a></td>
+    <td><a href="#" onClick="deleteEntity()">Delete</a></td>
     <td align="left" >38002</td>
     <td >Paden</td>
     <td>Heidi</td>

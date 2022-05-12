@@ -1,5 +1,4 @@
 <html>
-  
 <head>
 <title>Employers</title>
 <link href="style.css" rel="stylesheet" type="text/css" />
@@ -10,19 +9,19 @@
     * this function sets one visible the others not
     */
     if (dowhat == 'insert'){  
-      document.getElementById('browse').style.display = 'none';
+      document.getElementById('browse').style.display = 'block';
       document.getElementById('insert').style.display = 'block';
       document.getElementById('update').style.display = 'none';
       document.getElementById('delete').style.display = 'none';
     }
     else if (dowhat == 'update'){
-      document.getElementById('browse').style.display = 'none';
+      document.getElementById('browse').style.display = 'block';
       document.getElementById('insert').style.display = 'none';
       document.getElementById('update').style.display = 'block';
       document.getElementById('delete').style.display = 'none';
     }
     else if (dowhat == 'delete'){
-      document.getElementById('browse').style.display = 'none';
+      document.getElementById('browse').style.display = 'block';
       document.getElementById('insert').style.display = 'none';
       document.getElementById('update').style.display = 'none';
       document.getElementById('delete').style.display = 'block';
@@ -64,33 +63,33 @@
 <p><strong>Browse Employers</strong></p>
 <table border="1" cellpadding="5">
   <tr>
-    <th><a href="#">New</a></th>
+    <th><a href="#" onClick="newEntity()">New</a></th>
     <th></th>
     <th>Employer Id	</th>
     <th>Employer Name</th>
   </tr>
   <tr>
-    <td><a href="#">Edit</a></td>
-    <td><a href="#">Delete</a></td>
+    <td><a href="#" onClick="updateEntity()">Edit</a></td>
+    <td><a href="#" onClick="deleteEntity()">Delete</a></td>
     <td align="left" >0</td>
     <td>Health Oncology Group</td>
   </tr>
   <tr>
-    <td><a href="#">Edit</a></td>
-    <td><a href="#">Delete</a></td>
+    <td><a href="#" onClick="updateEntity()">Edit</a></td>
+    <td><a href="#" onClick="deleteEntity()">Delete</a></td>
     <td align="left" >1</td>
     <td>Case Western Reserve University</td>
   </tr>
   </tr>
   <tr>
-    <td><a href="#">Edit</a></td>
-    <td><a href="#">Delete</a></td>
+    <td><a href="#" onClick="updateEntity()">Edit</a></td>
+    <td><a href="#" onClick="deleteEntity()">Delete</a></td>
     <td align="left" >2</td>
     <td>Baylor University Medical Center</td>
   </tr>
   <tr>
-    <td><a href="#">Edit</a></td>
-    <td><a href="#">Delete</a></td>
+    <td><a href="#" onClick="updateEntity()">Edit</a></td>
+    <td><a href="#" onClick="deleteEntity()">Delete</a></td>
     <td align="left" >3</td>
     <td>Geisinger Medical Center</td>
   </tr>
