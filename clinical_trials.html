@@ -10,19 +10,19 @@
     * this function sets one visible the others not
     */
     if (dowhat == 'insert'){  
-      document.getElementById('browse').style.display = 'none';
+      document.getElementById('browse').style.display = 'block';
       document.getElementById('insert').style.display = 'block';
       document.getElementById('update').style.display = 'none';
       document.getElementById('delete').style.display = 'none';
     }
     else if (dowhat == 'update'){
-      document.getElementById('browse').style.display = 'none';
+      document.getElementById('browse').style.display = 'block';
       document.getElementById('insert').style.display = 'none';
       document.getElementById('update').style.display = 'block';
       document.getElementById('delete').style.display = 'none';
     }
     else if (dowhat == 'delete'){
-      document.getElementById('browse').style.display = 'none';
+      document.getElementById('browse').style.display = 'block';
       document.getElementById('insert').style.display = 'none';
       document.getElementById('update').style.display = 'none';
       document.getElementById('delete').style.display = 'block';
@@ -64,7 +64,7 @@
 <p><strong>Browse Clinical Trials</strong></p>
 <table border="1" cellpadding="5">
   <tr>
-    <th><a href="#">New</a></th>
+    <th><a href="#" onClick="newEntity()">New</a></th>
     <th></th>
     <th>Clinical Trial Id	</th>
     <th>Cancer Type</th>
@@ -72,24 +72,24 @@
     <th>Maximum Patients</th>
   </tr>
   <tr>
-    <td><a href="#">Edit</a></td>
-    <td><a href="#">Delete</a></td>
+    <td><a href="#" onClick="updateEntity()">Edit</a></td>
+    <td><a href="#" onClick="deleteEntity()">Delete</a></td>
     <td align="left" >HG1141</td>
     <td >Breast</td>
     <td align="left" >This randomized phase II trial studies how well abbreviated breast magnetic resonance imaging (MRI) and digital tomosynthesis mammography work in detecting cancer in women with dense breasts.</td>
     <td>1500</td>
   </tr>
   <tr>
-    <td><a href="#">Edit</a></td>
-    <td><a href="#">Delete</a></td>
+    <td><a href="#" onClick="updateEntity()">Edit</a></td>
+    <td><a href="#" onClick="deleteEntity()">Delete</a></td>
     <td align="left" >HG8143</td>
     <td >Kidney</td>
     <td align="left" >This phase III trial compares nephrectomy (surgery to remove a kidney or part of a kidney) with nivolumab to the usual approach of nephrectomy followed by standard post-operative follow-up and monitoring.</td>
     <td>750</td>
   </tr>
   <tr>
-    <td><a href="#">Edit</a></td>
-    <td><a href="#">Delete</a></td>
+    <td><a href="#" onClick="updateEntity()">Edit</a></td>
+    <td><a href="#" onClick="deleteEntity()">Delete</a></td>
     <td align="left" >HGG173</td>
     <td >Myeloma</td>
     <td align="left" >This phase III trial studies how well lenalidomide and dexamethasone works with or without daratumumab in treating patients with high-risk smoldering myeloma. </td>
