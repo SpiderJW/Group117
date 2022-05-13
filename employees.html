@@ -8,42 +8,59 @@
     * four DIVS: browse, insert, update, delete
     * this function sets one visible the others not
     */
-    if (dowhat == 'insert'){  
-      document.getElementById('browse').style.display = 'block';
-      document.getElementById('insert').style.display = 'block';
-      document.getElementById('update').style.display = 'none';
-      document.getElementById('delete').style.display = 'none';
+    switch(dowhat) {
+      case 'insert':
+        document.getElementById('browse').style.display = 'block';
+        document.getElementById('insert').style.display = 'block';
+        document.getElementById('update').style.display = 'none';
+        document.getElementById('delete').style.display = 'none';
+        break;
+      case 'update':
+        document.getElementById('browse').style.display = 'block';
+        document.getElementById('insert').style.display = 'none';
+        document.getElementById('update').style.display = 'block';
+        document.getElementById('delete').style.display = 'none';
+        break;
+      case 'delete':
+        document.getElementById('browse').style.display = 'block';
+        document.getElementById('insert').style.display = 'none';
+        document.getElementById('update').style.display = 'none';
+        document.getElementById('delete').style.display = 'block';
+        break;
+      case 'browse':
+        document.getElementById('browse').style.display = 'block';
+        document.getElementById('insert').style.display = 'none';
+        document.getElementById('update').style.display = 'none';
+        document.getElementById('delete').style.display = 'none';
+        document.getElementById('supInsert').style.display = 'none';
+        document.getElementById('supUpdate').style.display = 'none';
+        document.getElementById('supDelete').style.display = 'none';
+        break;
+      case 'supInsert':
+        document.getElementById('browse').style.display = 'block';
+        document.getElementById('supInsert').style.display = 'block';
+        break;
+      case 'supUpdate':
+        document.getElementById('browse').style.display = 'block';
+        document.getElementById('supUpdate').style.display = 'block';
+        break;
+      break;
+      case 'deleteSupport':
+        document.getElementById('browse').style.display = 'block';
+        document.getElementById('supDelete').style.display = 'block';
+        break;
     }
-    else if (dowhat == 'update'){
-      document.getElementById('browse').style.display = 'block';
-      document.getElementById('insert').style.display = 'none';
-      document.getElementById('update').style.display = 'block';
-      document.getElementById('delete').style.display = 'none';
-    }
-    else if (dowhat == 'delete'){
-      document.getElementById('browse').style.display = 'block';
-      document.getElementById('insert').style.display = 'none';
-      document.getElementById('update').style.display = 'none';
-      document.getElementById('delete').style.display = 'block';
-    }
-    else if (dowhat == 'all'){
-      document.getElementById('browse').style.display = 'block';
-      document.getElementById('insert').style.display = 'block';
-      document.getElementById('update').style.display = 'block';
-      document.getElementById('delete').style.display = 'block';
-    }
-    else { //by default display browse
-      document.getElementById('browse').style.display = 'block';
-      document.getElementById('insert').style.display = 'none';
-      document.getElementById('update').style.display = 'none';
-      document.getElementById('delete').style.display = 'none';
-    }
+    
   }
-  function newEntity() { showform('insert'); }
+  function newEmployee() { showform('insert'); }
   function updateEntity(pid) { showform('update'); }
-  function deleteEntity(pid) { showform ('delete'); }
-  function browseEntity() { showform ('browse'); }
-  function showAll() { showform ('all'); }
+  function deleteEntity(pid) { showform('delete'); }
+  function browseEntity() { showform('browse'); }
+  function showAll() { showform('all'); }
+  function newSupport() { showform('supInsert')}
+  function updateSupport() { showform('supUpdate')}
+  function deleteSupport() { showform('deleteSupport')}
+
 </script>
 </head>
 
@@ -57,13 +74,11 @@
 <a href="employees.html">Employees</a> |  
 <a href="employers.html">Employers</a> | ]
 
-<p><a href="#" onClick="showAll()">Make Changes</a> </p>
-
 <div id="browse" style="display: block">
 <p><strong>Browse Employees</strong></p>
 <table border="1" cellpadding="5">
   <tr>
-    <th><a href="#" onClick="newEntity()">New</a></th>
+    <th></th>
     <th></th>
     <th>Employee Id	</th>
     <th>Employee First Name</th>
@@ -140,8 +155,10 @@
     <td>3</td>
   </tr>
 </table>
+<button onClick="newEmployee()">Add New Employee</button>
 <p>&nbsp;</p>
 </div> <!-- browse -->
+
 <div id="insert" style="display: block">
     <form id="addEmployee">
         <legend><strong>Add Employee</strong></legend>
@@ -154,12 +171,13 @@
             <label> Desk Phone </label> <input type="tel" name="desk_phone">
             <label> Employer Id </label> <input type="text" name="employers_employer_id">
           </fieldset>
-          <input class="btn" type="submit" id="addEmployee" value="Add a Employee">
-          <input class="btn" type="button" value="Cancel">
+          <input class="btn" type="submit" id="addEmployee" value="Add Employee">
+          <input class="btn" type="button" value="Cancel" onClick="browseEntity()">
 	</form> <!--add new employee-->
 </div><!-- insert -->
 
 <p>&nbsp;</p>
+
 <div id="update" style="display: block">
   <form id="updateEmployee">
       <legend><strong>Update Employee</strong></legend>
@@ -173,11 +191,13 @@
             <label> Employer Id </label> <input type="text" name="employers_employer_id">
     </fieldset>
     <input class="btn" type="submit" id="UpdateSaveEmployee" value="Save Update Employee">
-          <input class="btn" type="button" value="Cancel" >
+          <input class="btn" type="button" value="Cancel" onClick="browseEntity()">
   </form> 
 </div>
 <!-- update -->
+
 <p>&nbsp;</p>
+
 <div id="delete" style="display: block">
   <form id="deleteEmployee">
       <legend><strong>Delete Employee</strong></legend>
@@ -186,9 +206,9 @@
           <label>Confirm:</label>
             <label> Employee Id </label> <input type="number" name="employee_id">
             
-    </fieldset>
+          </fieldset>
     <input class="btn" type="submit" id="DeleteEmployee" value="Delete Employee">
-          <input class="btn" type="button" value="Cancel" >
+    <input class="btn" type="button" value="Cancel" onClick="browseEntity()">
   </form> 
 </div><!-- delete -->
 
@@ -201,44 +221,97 @@
       <th>Clinical Trial Id</th>
       <th>Employee Trial Role</th>
       <th></th>
+      <th></th>
     </tr>
     <tr>
       <td align="left" >1</td>
       <td align="left" >HG1141</td>
       <td align ="left" >Recruiter</td>
-      <td><a href="#">Edit Role</a></td>
+      <td><a href="#" onClick="updateSupport()">Edit Role</a></td>
+      <td><a href="#" onClick="deleteSupport()">Delete</a></td>
     </tr>
     <tr>
       <td align="left" >2</td>
       <td align="left" >HG8143</td>
       <td align ="left" >Project Coordinator</td>
-      <td><a href="#">Edit Role</a></td>
+      <td><a href="#" onClick="updateSupport()">Edit Role</a></td>
+      <td><a href="#" onClick="deleteSupport()">Delete</a></td>
     </tr>
     <tr>
       <td align="left" >3</td>
       <td align="left" >HGG173</td>
       <td align ="left" >Data Manager</td>
-      <td><a href="#">Edit Role</a></td>
+      <td><a href="#" onClick="updateSupport()">Edit Role</a></td>
+      <td><a href="#" onClick="deleteSupport()">Delete</a></td>
     </tr>
     <tr>
       <td align="left" >4</td>
       <td align="left" >HG1141</td>
       <td align ="left" >Study Chair</td>
-      <td><a href="#">Edit Role</a></td>
+      <td><a href="#" onClick="updateSupport()">Edit Role</a></td>
+      <td><a href="#" onClick="deleteSupport()">Delete</a></td>
     </tr>
     <tr>
       <td align="left" >5</td>
       <td align="left" >HG8143</td>
       <td align ="left" >Commitee Chair</td>
-      <td><a href="#">Edit Role</a></td>
+      <td><a href="#" onClick="updateSupport()">Edit Role</a></td>
+      <td><a href="#" onClick="deleteSupport()">Delete</a></td>
     </tr>
     <tr>
       <td align="left" >6</td>
       <td align="left" >HGG173</td>
       <td align ="left" >Study Co-Chair</td>
-      <td><a href="#">Edit Role</a></td>
+      <td><a href="#" onClick="updateSupport()">Edit Role</a></td>
+      <td><a href="#" onClick="deleteSupport()">Delete</a></td>
     </tr>
   </table>
 </div>
+<button onClick="newSupport()">Add New Supporting Employee</button>
+
+<div id="supInsert" style="display: block">
+    <form id="addSupporting">
+        <legend><strong>Add Supporting Employee</strong></legend>
+          <fieldset class="fields">
+            <label> Employee Id </label> <input type="number" name="employee_id">
+            <label> Clinical Trial Id </label> <input type="text" name="clinical_trial_id">
+            <label> Employee Trial Role </label> <input type="text" name="employee_trial_role">
+          </fieldset>
+          <input class="btn" type="submit" id="addSupporting" value="Add Supporting Employee">
+          <input class="btn" type="button" value="Cancel" onClick="browseEntity()">
+	</form> <!--add new supporting employee-->
+</div><!-- insert -->
+
+<div id="supUpdate" style="display: block">
+  <form id="updateSupporting">
+      <legend><strong>Update Supporting Employee</strong></legend>
+          <fieldset class="fields">
+            <label> Employee Id </label> <input type="number" name="employee_id">
+            <label> Clinical Trial Id </label> <input type="text" name="clinical_trial_id">
+            <label> Employee Trial Role </label> <input type="text" name="employee_trial_role">
+          </fieldset>
+    <input class="btn" type="submit" id="UpdateSupportingEmployee" value="Save Update Supporting Employee">
+    <input class="btn" type="button" value="Cancel" onClick="browseEntity()">
+  </form> 
+</div>
+
+<div id="supDelete" style="display: block">
+  <form id="deleteSupportEmployee">
+      <legend><strong>Delete Support Employee</strong></legend>
+          <fieldset class="fields">
+          <p>Please confirm you wish to delete by confirming the following</p>
+          <label>Confirm:</label>
+            <label> Employee Id </label> <input type="number" name="employee_id">
+            <label> Clinical Trial Id </label> <input type="text" name="clinical_trial_id">
+            
+          </fieldset>
+    <input class="btn" type="submit" id="DeleteSupportEmployee" value="Delete Supporting Employee">
+    <input class="btn" type="button" value="Cancel" onClick="browseEntity()">
+  </form> 
+</div><!-- delete -->
+
+
+
+<br />
 </body>
 </html>
