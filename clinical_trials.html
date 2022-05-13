@@ -57,13 +57,11 @@
 <a href="employees.html">Employees</a> |  
 <a href="employers.html">Employers</a> | ]
 
-<p><a href="#" onClick="showAll()">Make Changes</a> </p>
-
 <div id="browse" style="display: block">
 <p><strong>Browse Clinical Trials</strong></p>
 <table border="1" cellpadding="5">
   <tr>
-    <th><a href="#" onClick="newEntity()">New</a></th>
+    <th></th>
     <th></th>
     <th>Clinical Trial Id	</th>
     <th>Cancer Type</th>
@@ -95,8 +93,10 @@
     <td>300</td>
   </tr>
 </table>
-<p>&nbsp;</p>
+<button onClick="newEntity()">Add New Clinical Trial</button>
+<p></p>
 </div> <!-- browse -->
+
 <div id="insert" style="display: block">
     <form id="addClinical_Trial">
         <legend><strong>Add Clinical Trial</strong></legend>
@@ -109,6 +109,7 @@
           <input class="btn" type="submit" id="addClinicalTrial" value="Add a Clinical Trial">
           <input class="btn" type="button" value="Cancel">
 	</form> <!--add new clinical trial-->
+
 </div><!-- insert -->
 
 <p>&nbsp;</p>
