@@ -63,10 +63,10 @@ CREATE TABLE `employees` (
   `employee_id` int(11) NOT NULL,
   `employee_first_name` varchar(45) NOT NULL,
   `employee_last_name` varchar(45) NOT NULL,
-  `position` varchar(45) NOT NULL,
+  `position` varchar(45) DEFAULT NULL,
   `email` varchar(60) DEFAULT NULL,
   `desk_phone` varchar(18) DEFAULT NULL,
-  `employers_employer_id` int(11) NOT NULL
+  `employers_employer_id` int(11) DEFAULT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
@@ -79,7 +79,8 @@ INSERT INTO `employees` (`employee_id`, `employee_first_name`, `employee_last_na
 (3, 'Haylie', 'Sandra', 'Data Manager', 'hsandra@hog.com', '832-209-6628', 0),
 (4, 'Steve', 'Glenna', 'M.D.', 'sglenna@case.edu', '775-981-5220', 1),
 (5, 'Deitra', 'Gracie', 'M.D.', 'dgracie@baylor.edu', '561-552-5564', 2),
-(6, 'Alex', 'King', 'M.D.', 'aking@geisinger.edu', '914-774-0513', 3);
+(6, 'Alex', 'King', 'M.D.', 'aking@geisinger.edu', '914-774-0513', 3),
+(7, 'Alexander,' 'Fleming', 'PharmD.', NULL, NULL, NULL)
 
 -- --------------------------------------------------------
 
@@ -104,6 +105,7 @@ INSERT INTO `employees_supporting_clinical_trials` (`employees_employee_id`, `cl
 (4, 'HG1141', 'Study Chair'),
 (5, 'HG8143', 'Committee Chair'),
 (6, 'HGG173', 'Study Co-Chair');
+(7, 'HGG173', 'Pharmacist')
 
 -- --------------------------------------------------------
 
