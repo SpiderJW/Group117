@@ -92,6 +92,13 @@ SELECT hospitals_hospital_id AS "Hospital Id",
 clinical_trials_clinical_trial_id AS "Clinical Trial Id" FROM hospitals_supporting_clinical_trials
 WHERE hospitals_hospital_id = :hospitals_hopsital_id
 
+-- FK user friendly readable Hospitals Supporting Clinical Trials Intersection Table
+SELECT hospitals_supporting_clinical_trials.hospitals_hospital_id AS "Hospital Id",
+hospitals.hospital_name AS "Hospital Name",
+hospitals_supporting_clinical_trials.clinical_trials_clinical_trial_id
+FROM hospitals_supporting_clinical_trials
+INNER JOIN hospitals ON hospitals_hospital_id = hospital_id;
+
 -- -----------------------------------------------------
 -- Patients Table
 -- -----------------------------------------------------
@@ -213,6 +220,14 @@ SELECT employees_employee_id AS "Employee Id",
 clinical_trials_clinical_trial_id AS "Clinical Trial Id", 
 employee_trial_role AS "Employee Trial Role" FROM employees_supporting_clinical_trials
 WHERE clinical_trials_clinical_trial_id = :clinical_trials_clinical_trial_idInput
+
+-- FK user friendly readable Employees Supporting Clinical Trials Intersection Table
+SELECT employees_supporting_clinical_trials.employees_employee_id AS "Employee Id",
+CONCAT(employees.employee_first_name, ' ', employees.employee_last_name) AS "Employee Full Name",
+employees_supporting_clinical_trials.clinical_trials_clinical_trial_id AS "Clinical Trial Id",
+employees_supporting_clinical_trials.employee_trial_role AS "Employee Trial Role"
+FROM employees_supporting_clinical_trials
+INNER JOIN employees ON employees_employee_id = employee_id;
 
 -- -----------------------------------------------------
 -- Employer Table
