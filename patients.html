@@ -61,7 +61,7 @@
 <p><strong>Browse Patients</strong></p>
 <table border="1" cellpadding="5">
   <tr>
-    <th><a href="#" onClick="newEntity()">New</a></th>
+    <th></th>
     <th></th>
     <th>Patient Id	</th>
     <th>Patient First Name</th>
@@ -136,8 +136,10 @@
     <td>HG1141</td>
   </tr>
 </table>
-<p>&nbsp;</p>
+<button onClick="newEntity()">Add New Patient</button>
+<p></p>
 </div> <!-- browse -->
+
 <div id="insert" style="display: block">
     <form id="addPatient">
         <legend><strong>Add Patient</strong></legend>
@@ -214,11 +216,10 @@
             <label> Clinical Trials Id </label> <input type="text" name="clinical_trials_clinical_trial_id">
           </fieldset>
           <input class="btn" type="submit" id="addPatient" value="Add a Patient">
-          <input class="btn" type="button" value="Cancel">
+          <input class="btn" type="button" value="Cancel" onClick="browseEntity()">
 	</form> <!--add new patient-->
 </div><!-- insert -->
 
-<p>&nbsp;</p>
 <div id="update" style="display: block">
   <form id="updatePatient">
       <legend><strong>Update Patient</strong></legend>
@@ -295,11 +296,11 @@
             <label> Clinical Trials Id </label> <input type="text" name="clinical_trials_clinical_trial_id">
     </fieldset>
     <input class="btn" type="submit" id="UpdateSavePatient" value="Save Update Patient">
-          <input class="btn" type="button" value="Cancel" >
+          <input class="btn" type="button" value="Cancel"  onClick="browseEntity()">
   </form> 
 </div>
 <!-- update -->
-<p>&nbsp;</p>
+
 <div id="delete" style="display: block">
   <form id="deletePatient">
       <legend><strong>Delete Patient</strong></legend>
@@ -308,9 +309,9 @@
           <label>Confirm:</label>
             <label> Patient Id </label> <input type="number" name="patient_id">
             
-    </fieldset>
+          </fieldset>
     <input class="btn" type="submit" id="DeletePatient" value="Delete Patient">
-          <input class="btn" type="button" value="Cancel" >
+    <input class="btn" type="button" value="Cancel" onClick="browseEntity()">
   </form> 
 </div><!-- delete -->
 </body>
