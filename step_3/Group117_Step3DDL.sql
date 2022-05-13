@@ -66,7 +66,7 @@ CREATE TABLE `employees` (
   `position` varchar(45) DEFAULT NULL,
   `email` varchar(60) DEFAULT NULL,
   `desk_phone` varchar(18) DEFAULT NULL,
-  `employers_employer_id` int(11) DEFAULT NULL,
+  `employers_employer_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
@@ -74,13 +74,13 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`employee_id`, `employee_first_name`, `employee_last_name`, `position`, `email`, `desk_phone`, `employers_employer_id`) VALUES
-(1, 'Regina', 'Dutch', 'Recruiter', 'dregina@hog.com', '402-250-8329', 0),
-(2, 'Calvin', 'Jonas', 'Project Coordinator', 'cjonas@hog.com', '714-338-2340', 0),
-(3, 'Haylie', 'Sandra', 'Data Manager', 'hsandra@hog.com', '832-209-6628', 0),
+(1, 'Regina', 'Dutch', 'Recruiter', 'dregina@hog.com', '402-250-8329', 117),
+(2, 'Calvin', 'Jonas', 'Project Coordinator', 'cjonas@hog.com', '714-338-2340', 117),
+(3, 'Haylie', 'Sandra', 'Data Manager', 'hsandra@hog.com', '832-209-6628', 117),
 (4, 'Steve', 'Glenna', 'M.D.', 'sglenna@case.edu', '775-981-5220', 1),
 (5, 'Deitra', 'Gracie', 'M.D.', 'dgracie@baylor.edu', '561-552-5564', 2),
 (6, 'Alex', 'King', 'M.D.', 'aking@geisinger.edu', '914-774-0513', 3),
-(7, 'Alexander,' 'Fleming', 'PharmD.', NULL, NULL, NULL)
+(7, 'Alexander', 'Fleming', 'PharmD.', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -104,8 +104,8 @@ INSERT INTO `employees_supporting_clinical_trials` (`employees_employee_id`, `cl
 (3, 'HGG173', 'Data Manager'),
 (4, 'HG1141', 'Study Chair'),
 (5, 'HG8143', 'Committee Chair'),
-(6, 'HGG173', 'Study Co-Chair');
-(7, 'HGG173', 'Pharmacist')
+(6, 'HGG173', 'Study Co-Chair'),
+(7, 'HGG173', 'Pharmacist');
 
 -- --------------------------------------------------------
 
