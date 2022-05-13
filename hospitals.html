@@ -8,42 +8,51 @@
     * four DIVS: browse, insert, update, delete
     * this function sets one visible the others not
     */
-    if (dowhat == 'insert'){  
-      document.getElementById('browse').style.display = 'block';
-      document.getElementById('insert').style.display = 'block';
-      document.getElementById('update').style.display = 'none';
-      document.getElementById('delete').style.display = 'none';
+    switch(dowhat) {
+      case 'insert':
+        document.getElementById('browse').style.display = 'block';
+        document.getElementById('insert').style.display = 'block';
+        document.getElementById('update').style.display = 'none';
+        document.getElementById('delete').style.display = 'none';
+        break;
+      case 'update':
+        document.getElementById('browse').style.display = 'block';
+        document.getElementById('insert').style.display = 'none';
+        document.getElementById('update').style.display = 'block';
+        document.getElementById('delete').style.display = 'none';
+        break;
+      case 'delete':
+        document.getElementById('browse').style.display = 'block';
+        document.getElementById('insert').style.display = 'none';
+        document.getElementById('update').style.display = 'none';
+        document.getElementById('delete').style.display = 'block';
+        break;
+      case 'browse':
+        document.getElementById('browse').style.display = 'block';
+        document.getElementById('insert').style.display = 'none';
+        document.getElementById('update').style.display = 'none';
+        document.getElementById('delete').style.display = 'none';
+        document.getElementById('hosInsert').style.display = 'none';
+        document.getElementById('hosDelete').style.display = 'none';
+        break;
+      case 'hosInsert':
+        document.getElementById('browse').style.display = 'block';
+        document.getElementById('hosInsert').style.display = 'block';
+        break;
+      case 'hosDelete':
+        document.getElementById('browse').style.display = 'block';
+        document.getElementById('hosDelete').style.display = 'block';
+      break;
     }
-    else if (dowhat == 'update'){
-      document.getElementById('browse').style.display = 'block';
-      document.getElementById('insert').style.display = 'none';
-      document.getElementById('update').style.display = 'block';
-      document.getElementById('delete').style.display = 'none';
-    }
-    else if (dowhat == 'delete'){
-      document.getElementById('browse').style.display = 'block';
-      document.getElementById('insert').style.display = 'none';
-      document.getElementById('update').style.display = 'none';
-      document.getElementById('delete').style.display = 'block';
-    }
-    else if (dowhat == 'all'){
-      document.getElementById('browse').style.display = 'block';
-      document.getElementById('insert').style.display = 'block';
-      document.getElementById('update').style.display = 'block';
-      document.getElementById('delete').style.display = 'block';
-    }
-    else { //by default display browse
-      document.getElementById('browse').style.display = 'block';
-      document.getElementById('insert').style.display = 'none';
-      document.getElementById('update').style.display = 'none';
-      document.getElementById('delete').style.display = 'none';
-    }
+    
   }
-  function newEntity() { showform('insert'); }
+  function newHospital() { showform('insert'); }
   function updateEntity(pid) { showform('update'); }
-  function deleteEntity(pid) { showform ('delete'); }
-  function browseEntity() { showform ('browse'); }
-  function showAll() { showform ('all'); }
+  function deleteEntity(pid) { showform('delete'); }
+  function browseEntity() { showform('browse'); }
+  function newHospitalSupport() { showform('hosInsert')}
+  function deleteHospital() { showform('hosDelete')}
+
 </script>
 </head>
 
@@ -62,7 +71,7 @@
 <p><strong>Browse Hospitals</strong></p>
 <table border="1" cellpadding="5">
   <tr>
-    <th><a href="#" onClick="newEntity()">New</a></th>
+    <th></th>
     <th></th>
     <th>Hospital Id	</th>
     <th>Hospital Name</th>
@@ -102,8 +111,10 @@
     <td>17821</td>
   </tr>
 </table>
-<p>&nbsp;</p>
+<button onClick="newHospital()">Add New Hospital</button>
+<p></p>
 </div> <!-- browse -->
+
 <div id="insert" style="display: block">
     <form id="addHospital">
         <legend><strong>Add Hospital</strong></legend>
@@ -170,11 +181,10 @@
             <label> Hospital Zip </label> <input type="number" name="hospital_zip">
           </fieldset>
           <input class="btn" type="submit" id="addHospital" value="Add a Hospital">
-          <input class="btn" type="button" value="Cancel">
+          <input class="btn" type="button" value="Cancel" onClick="browseEntity()">
 	</form> <!--add new hospital-->
 </div><!-- insert -->
 
-<p>&nbsp;</p>
 <div id="update" style="display: block">
   <form id="updateHospital">
       <legend><strong>Update Hospital</strong></legend>
@@ -241,11 +251,11 @@
             <label> Hospital Zip </label> <input type="number" name="hospital_zip">
     </fieldset>
     <input class="btn" type="submit" id="UpdateSaveHospital" value="Save Update Hospital">
-          <input class="btn" type="button" value="Cancel" >
+    <input class="btn" type="button" value="Cancel" onClick="browseEntity()">
   </form> 
 </div>
 <!-- update -->
-<p>&nbsp;</p>
+
 <div id="delete" style="display: block">
   <form id="deleteHospital">
       <legend><strong>Delete Hospital</strong></legend>
@@ -256,7 +266,7 @@
             
     </fieldset>
     <input class="btn" type="submit" id="DeleteHospital" value="Delete Hospital">
-          <input class="btn" type="button" value="Cancel" >
+    <input class="btn" type="button" value="Cancel" onClick="browseEntity()">
   </form> 
 </div><!-- delete -->
 
@@ -265,26 +275,62 @@
   <p><strong>Browse Hospitals Id by Clinical Trial</strong></p>
   <table border="1" cellpadding="5">
     <tr>
+      <th></th>
       <th>Hospital Id	</th>
       <th>Clinical Trial Id</th>
     </tr>
     <tr>
+      <td><a href="#" onClick="deleteHospital()">Delete</a></td>
       <td align="left" >1</td>
       <td align="left" >HG1141</td>
     </tr>
     <tr>
+      <td><a href="#" onClick="deleteHospital()">Delete</a></td>
       <td align="left" >3</td>
       <td align="left" >HG1141</td>
     </tr>
     <tr>
+      <td><a href="#" onClick="deleteHospital()">Delete</a></td>
       <td align="left" >2</td>
       <td align="left" >HG8143</td>
     </tr>
     <tr>
+      <td><a href="#" onClick="deleteHospital()">Delete</a></td>
       <td align="left" >3</td>
       <td align="left" >HGG173</td>
     </tr>
   </table>
+  <button onClick="newHospitalSupport()">Add New Supporting Hospital</button>
 </div>
+<p></p>
+
+<div id="hosInsert" style="display: block">
+  <form id="addHospitalSupporting">
+      <legend><strong>Add Supporting Hospital</strong></legend>
+        <fieldset class="fields">
+          <label> Hospital Id </label> <input type="number" name="hospital_id">
+          <label> Clinical Trial Id </label> <input type="text" name="clinical_trial_id">
+        </fieldset>
+        <input class="btn" type="submit" id="addHospitalSupporting" value="Add Supporting Hospital">
+        <input class="btn" type="button" value="Cancel" onClick="browseEntity()">
+  </form> <!--add new supporting hospital-->
+</div> <!-- insert -->
+
+
+<div id="hosDelete" style="display: block">
+  <form id="deleteHospitalSupporting">
+    <legend><strong>Delete Supporting Hospital</strong></legend>
+        <fieldset class="fields">
+        <p>Please confirm you wish to delete by confirming the following</p>
+        <label>Confirm:</label>
+          <label> Hospital Id </label> <input type="number" name="hospital_id">
+          <label> Clinical Trial Id </label> <input type="text" name="clinical_trial_id">
+          
+        </fieldset>
+    <input class="btn" type="submit" id="DeleteSupportEmployee" value="Delete Supporting Hospital">
+    <input class="btn" type="button" value="Cancel" onClick="browseEntity()">
+  </form> 
+</div> <!--  delete -->
+
 </body>
 </html>
