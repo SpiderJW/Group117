@@ -207,9 +207,9 @@ INSERT INTO employees_supporting_clinical_trials (employees_employee_id, clinica
 
 -- update an employee's trial role based on submission of the Update employee role form
 UPDATE employees_supporting_clinical_trials
+SET clinical_trials_clinical_trial_id= :clinical_trials_clinical_trial_idInput
 SET employee_trial_role= :employee_trial_roleInput
-WHERE employees_employee_id= :employees_employee_idInput,
-AND clinical_trials_clinical_trial_id = :clinical_trials_clinical_trial_idInput
+WHERE employees_employee_id= :employees_employee_idInput
 
 -- Disassociate an employee from a clinical trial
 DELETE FROM employees_supporting_clinical_trials WHERE employees_employee_id = :employees_employee_id AND clinical_trials_clinical_trial_id = :clinical_trials_clinical_trial_id
