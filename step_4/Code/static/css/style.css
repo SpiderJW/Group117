@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300&display=swap');
+
+body {
+    font-family: 'Tahoma', sans-serif;
+    background: #ECEBF3;
+    margin: auto;
+    padding: auto;
+    color: #0C120C;
+    text-align: center;
+}
+
+a:hover {
+    color: #8F0007;
+}
+
+table { 
+    border-collapse: collapse;
+    margin-bottom: 10px;
+    border: 1px solid #0C120C;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+tr th {
+    background:#182518;
+    color: #E8EEED;
+    font-weight: bold;
+    padding: 2px 5px;
+}
+tr td {
+    padding: 2px 5px;
+}
+tr:nth-child(odd) {
+    background: #DCE5E3;
+}
+tr:nth-child(even) {
+    background: #F3F6F6;
+}
+
+input {
+    background: #F3F6F6;
+    margin-right: 5px;
+    margin-left: 5px;
+    padding: 5px;
+}
+
+select {
+    background: #F3F6F6;
+    margin-right: 5px;
+    margin-left: 5px;
+    padding: 5px;
+    max-width: 75px;
+}

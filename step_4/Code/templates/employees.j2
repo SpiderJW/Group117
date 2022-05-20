@@ -1,0 +1,245 @@
+{# Table construction adapted from https://github.com/osu-cs340-ecampus/flask-starter-app/tree/master/bsg_people_app/templates #}
+
+<html>
+<head>
+<title>Employees</title>
+<link href="../static/css/style.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript">
+  function showform(dowhat) {
+    /*
+    * four DIVS: browse, insert, update, delete
+    * this function sets one visible the others not
+    */
+    switch(dowhat) {
+      case 'insert':
+        document.getElementById('browse').style.display = 'block';
+        document.getElementById('insert').style.display = 'block';
+        document.getElementById('update').style.display = 'none';
+        document.getElementById('delete').style.display = 'none';
+        break;
+      case 'update':
+        document.getElementById('browse').style.display = 'block';
+        document.getElementById('insert').style.display = 'none';
+        document.getElementById('update').style.display = 'block';
+        document.getElementById('delete').style.display = 'none';
+        break;
+      case 'delete':
+        document.getElementById('browse').style.display = 'block';
+        document.getElementById('insert').style.display = 'none';
+        document.getElementById('update').style.display = 'none';
+        document.getElementById('delete').style.display = 'block';
+        break;
+      case 'browse':
+        document.getElementById('browse').style.display = 'block';
+        document.getElementById('insert').style.display = 'none';
+        document.getElementById('update').style.display = 'none';
+        document.getElementById('delete').style.display = 'none';
+        document.getElementById('supInsert').style.display = 'none';
+        document.getElementById('supUpdate').style.display = 'none';
+        document.getElementById('supDelete').style.display = 'none';
+        break;
+      case 'supInsert':
+        document.getElementById('browse').style.display = 'block';
+        document.getElementById('supInsert').style.display = 'block';
+        break;
+      case 'supUpdate':
+        document.getElementById('browse').style.display = 'block';
+        document.getElementById('supUpdate').style.display = 'block';
+        break;
+      break;
+      case 'deleteSupport':
+        document.getElementById('browse').style.display = 'block';
+        document.getElementById('supDelete').style.display = 'block';
+        break;
+    }
+    
+  }
+  function newEmployee() { showform('insert'); }
+  function updateEntity(pid) { showform('update'); }
+  function deleteEntity(pid) { showform('delete'); }
+  function browseEntity() { showform('browse'); }
+  function newSupport() { showform('supInsert')}
+  function updateSupport() { showform('supUpdate')}
+  function deleteSupport() { showform('deleteSupport')}
+
+</script>
+</head>
+
+<body onload="browseEntity()">
+<h1>Employees</h1>
+
+<!-- Nav Bar -->
+[ <a href="clinical_trials.html">Clinical Trials</a> | 
+<a href="patients.html">Patients</a> | 
+<a href="hospitals.html">Hospitals</a> |  
+<a href="employees.html">Employees</a> |  
+<a href="employers.html">Employers</a> | ]
+
+<div id="browse" style="display: block">
+<p><strong>Browse Employees</strong></p>
+
+<table border="1" cellpadding="5">
+<thead>
+<tr>
+    <th></th>
+    <th></th>
+    <!-- Iterate through each key in the first entry to get the column name -->
+    {% for key in employees[0].keys() %}
+
+        <!-- Create a <th> tag with the key inside of it, this will be our header row -->
+        <th>{{ key }}</th>
+
+    <!-- End of this for loop -->
+    {% endfor %}
+</tr>
+<tbody>
+
+<!-- Now, iterate through every person in employees -->
+{% for employee in employees %}
+<tr>
+    <td><a href="edit-employee/{{employee['Employee Id']}}">Edit</a></td>
+    <td><a href="delete-employee/{{employee['Employee Id']}}">Delete</a></td>
+    <!-- Then iterate through every key in the current person dictionary -->
+    {% for key in employee.keys() %}
+
+        <!-- Create a <td> element with the value of that key in it -->
+        <td>{{employee[key]}}</td>
+    {% endfor %}
+</tr>
+{% endfor %}
+</table>
+<button onClick="newEmployee()">Add New Employee</button>
+</div> <!-- browse -->
+<p></p>
+
+<div id="insert" style="display: block">
+    <form id="addEmployee" action="/employees" method="POST">
+        <legend><strong>Add Employee</strong></legend>
+          <fieldset class="fields">
+            <label> Employee Id </label> <input type="number" name="employee_id">
+            <label> Employee First Name </label> <input type="text" name="employee_first_name">
+            <label> Employee Last Name </label> <input type="text" name="employee_last_name">
+            <label> Position </label> <input type="text" name="position">
+            <label> Email </label> <input type="email" name="email">
+            <label> Desk Phone </label> <input type="tel" name="desk_phone">
+            <label> Employer Id </label> <input type="text" name="employers_employer_id">
+          </fieldset>
+          <input class="btn" type="submit" id="add_employee" name="addEmployee" value="Add Employee">
+          <input class="btn" type="button" value="Cancel" onClick="browseEntity()">
+	</form> <!--add new employee-->
+</div><!-- insert -->
+
+<div id="update" style="display: block">
+  <form id="updateEmployee">
+      <legend><strong>Update Employee</strong></legend>
+          <fieldset class="fields">
+            <label> Employee Id </label> <input type="number" name="employee_id">
+            <label> Employee First Name </label> <input type="text" name="employee_first_name">
+            <label> Employee Last Name </label> <input type="text" name="employee_last_name">
+            <label> Position </label> <input type="text" name="position">
+            <label> Email </label> <input type="email" name="email">
+            <label> Desk Phone </label> <input type="tel" name="desk_phone">
+            <label> Employer Id </label> <input type="text" name="employers_employer_id">
+    </fieldset>
+    <input class="btn" type="submit" id="UpdateSaveEmployee" value="Save Update Employee">
+          <input class="btn" type="button" value="Cancel" onClick="browseEntity()">
+  </form> 
+</div>
+<!-- update -->
+
+<div id="delete" style="display: block">
+  <form id="deleteEmployee">
+      <legend><strong>Delete Employee</strong></legend>
+          <fieldset class="fields">
+          <p>Please confirm you wish to delete by confirming the following</p>
+          <label>Confirm:</label>
+            <label> Employee Id </label> <input type="number" name="employee_id">
+            
+          </fieldset>
+    <input class="btn" type="submit" id="DeleteEmployee" value="Delete Employee">
+    <input class="btn" type="button" value="Cancel" onClick="browseEntity()">
+  </form> 
+</div><!-- delete -->
+
+<h1>Employees Supporting Clinical Trials</h1>
+<div id="browse" style="display: block">
+  <p><strong>Browse Employees Id by Clinical Trial</strong></p>
+  <table border="1" cellpadding="5">
+    <thead>
+    <tr>
+
+        <!-- Iterate through each key in the first entry to get the column name -->
+        {% for key in employees_int[0].keys() %}
+
+            <!-- Create a <th> tag with the key inside of it, this will be our header row -->
+            <th>{{ key }}</th>
+
+        <!-- End of this for loop -->
+        {% endfor %}
+        <th></th>
+        <th></th>
+    </tr>
+    <tbody>
+
+    <!-- Now, iterate through every person in employees -->
+    {% for employee in employees_int %}
+    <tr>
+
+        <!-- Then iterate through every key in the current person dictionary -->
+        {% for key in employee.keys() %}
+
+            <!-- Create a <td> element with the value of that key in it -->
+            <td>{{employee[key]}}</td>
+        {% endfor %}
+        <td><a href="edit-supporting-employee/{{employee['Employee Id']}}"> Edit Role</a></td>
+        <td><a href="delete-supporting-employee/{{employee['Employee Id']}}"> Delete</a></td>
+    </tr>
+    {% endfor %}
+    </table>
+<button onClick="newSupport()">Add New Supporting Employee</button>
+<p></p> 
+
+<div id="supInsert" style="display: block">
+    <form id="addSupporting" action="/employees" method="POST">
+        <legend><strong>Add Supporting Employee</strong></legend>
+          <fieldset class="fields">
+            <label> Employee Id </label> <input type="number" name="employee_id">
+            <label> Clinical Trial Id </label> <input type="text" name="clinical_trial_id">
+            <label> Employee Trial Role </label> <input type="text" name="employee_trial_role">
+          </fieldset>
+          <input class="btn" type="submit" id="addSupporting" name ="addSupporting" value="Add Supporting Employee">
+          <input class="btn" type="button" value="Cancel" onClick="browseEntity()">
+	</form> <!--add new supporting employee-->
+</div><!-- insert -->
+
+<div id="supUpdate" style="display: block">
+  <form id="updateSupporting">
+      <legend><strong>Update Supporting Employee</strong></legend>
+          <fieldset class="fields">
+            <label> Employee Id </label> <input type="number" name="employee_id">
+            <label> Clinical Trial Id </label> <input type="text" name="clinical_trial_id">
+            <label> Employee Trial Role </label> <input type="text" name="employee_trial_role">
+          </fieldset>
+    <input class="btn" type="submit" id="UpdateSupportingEmployee" value="Save Update Supporting Employee">
+    <input class="btn" type="button" value="Cancel" onClick="browseEntity()">
+  </form> 
+</div>
+
+<div id="supDelete" style="display: block">
+  <form id="deleteSupportEmployee">
+      <legend><strong>Delete Support Employee</strong></legend>
+          <fieldset class="fields">
+          <p>Please confirm you wish to delete by confirming the following</p>
+          <label>Confirm:</label>
+            <label> Employee Id </label> <input type="number" name="employee_id">
+            <label> Clinical Trial Id </label> <input type="text" name="clinical_trial_id">
+            
+          </fieldset>
+    <input class="btn" type="submit" id="DeleteSupportEmployee" value="Delete Supporting Employee">
+    <input class="btn" type="button" value="Cancel" onClick="browseEntity()">
+  </form> 
+</div><!-- delete -->
+
+<p></p>
+</body>
+</html>

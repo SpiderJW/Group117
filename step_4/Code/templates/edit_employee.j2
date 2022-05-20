@@ -1,0 +1,65 @@
+{# Table construction adapted from https://github.com/osu-cs340-ecampus/flask-starter-app/tree/master/bsg_people_app/templates #}
+
+<div id="browse" style="display: block">
+<p><strong>Editing Employee</strong></p>
+<table border="1" cellpadding="5">
+<thead>
+<tr>
+    <th></th>
+    <th></th>
+    <!-- Iterate through each key in the first entry to get the column name -->
+    {% for key in employee[0] %}
+
+        <!-- Create a <th> tag with the key inside of it, this will be our header row -->
+        <th>{{ key }}</th>
+
+    <!-- End of this for loop -->
+    {% endfor %}
+</tr>
+<tbody>
+
+<!-- Now, iterate through every person in employees -->
+
+<tr>
+    <td><a href="/edit-employee/{{employee[0]['Employee Id']}}">Edit</a></td>
+    <td><a href="#" onClick="deleteEntity()">Delete</a></td>
+    <!-- Then iterate through every key in the current person dictionary -->
+    {% for key in employee[0] %}
+        <!-- Create a <td> element with the value of that key in it -->
+        <td>{{employee[0][key]}}</td>
+    {% endfor %}
+</tr>
+</table>
+
+<div id="edit">
+
+    <form id="editEmployee" action="/edit-employee/{{employee[0]['Employee Id']}}" method="POST">
+
+        <legend><strong>Edit Employee</strong></legend>
+        <fieldset>
+            <input type="hidden" value="{{employee[0]['Employee Id']}}" class="form-control" id="employee_id" name="employee_id" required>
+            
+            <label for="employee_first_name">Employee First Name:</label>
+            <input type="text" value="{{employee[0]['Employee First Name']}}" class="form-control" id="employee_first_name" name="employee_first_name" pattern="[A-Za-z]{1,}" required>
+
+            <label for="employee_last_name">Employee Last Name:</label>
+            <input type="text" value="{{employee[0]['Employee Last Name']}}" class="form-control" id="employee_last_name" name="employee_last_name" pattern="[A-Za-z]{1,}" required>
+
+            <label for="position">Position:</label>
+            <input type="text" value="{{employee[0]['Position']}}" class="form-control" id="position" name="position" required>
+
+            <label for="email">Email:</label>
+            <input type="text" value="{{employee[0]['Email']}}" class="form-control" id="email" name="email">
+
+            <label for="desk_phone">Desk Phone:</label>
+            <input type="text" value="{{employee[0]['Desk Phone']}}" class="form-control" id="desk_phone" name="desk_phone">
+
+            <label for="employers_employer_id">Employer ID:</label>
+            <input type="number" value="{{employee[0]['Employer Id']}}" class="form-control" id="employers_employer_id" name="employers_employer_id">
+        </fieldset>
+    <input type="submit" value="Edit Employee" name="Edit_Employee" class="btn btn-primary" style="margin:.5rem;">
+    <a href='/employees'><input class="btn" type="button" value="cancel"></a>
+
+</form>
+
+</html>
